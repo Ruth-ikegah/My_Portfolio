@@ -1,11 +1,11 @@
-from home.serializers import AboutSerializer, ContactSerializer
+from home.serializers import AboutSerializer, CalendarSerializer, ContactSerializer, SpeakingSerializer, WorkSerializer
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework.status import HTTP_200_OK
 from rest_framework.response import Response
-from .models import Contact, About
+from .models import Calendar, Contact, About, Speaking, Work
 
 # Create your views here.
 
@@ -16,4 +16,17 @@ class ContactView(CreateAPIView):
 
 class AboutView(CreateAPIView):
     serializer_class = AboutSerializer
-    queryset = Contact.objects.all()
+    queryset = About.objects.all()
+
+
+class WorkView(CreateAPIView):
+    serializer_class = WorkSerializer
+    queryset = Work.objects.all()
+
+class SpeakingView(CreateAPIView):
+    serializer_class = SpeakingSerializer
+    queryset = Speaking.objects.all()
+
+class CalendarView(CreateAPIView):
+    serializer_class = CalendarSerializer
+    queryset = Calendar.objects.all()
