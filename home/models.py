@@ -12,3 +12,12 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class About(models.Model):
+    bio = models.TextField()
+    
+
+    def __str__(self):
+        return self.bio
+
