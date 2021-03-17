@@ -30,8 +30,8 @@ class Work(models.Model):
     image = models.ImageField()
     image_1 = models.ImageField()
     image_2 = models.ImageField()
-    live_site = models.URLField(max_length=200)
-    github_link = models.URLField(max_length=200)
+    live_site = models.URLField()
+    github_link = models.URLField()
 
     def __str__(self):
         return self.name
@@ -41,8 +41,8 @@ class Speaking(models.Model):
     name = models.CharField(max_length=200)
     abstract = models.TextField()
     image = models.ImageField()
-    slide_link = models.URLField(max_length=200)
-    video_link = models.URLField(max_length=200)
+    slide_link = models.URLField()
+    video_link = models.URLField()
 
     def __str__(self):
         return self.name
