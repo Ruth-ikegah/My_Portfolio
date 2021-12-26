@@ -23,12 +23,25 @@ class ContactView(APIView):
             email=email,
             message=message)
         contact.save()
-        return Response(status=HTTP_200_OK)
+        return Response({"message":"Message sent successfully"},status=HTTP_200_OK)
 
 class WorkView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = WorkSerializer
-    queryset = Work.objects.all()
+    queryset = Work.objects.all().order_by("-date")
+
+
+    def get_queryset(self):
+            return Work.objects.all().order_by("-date")
+
+
+class HomeWorkView(ListAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = WorkSerializer
+    queryset = Work.objects.all().order_by("-date")[:4]
+
+    def get_queryset(self):
+        return Work.objects.all().order_by("-date")[:4]
 
 
 class WorkDetailView(RetrieveAPIView):

@@ -8,7 +8,8 @@ class ContactAdmin(admin.ModelAdmin):
     actions_on_bottom = True
 
 class WorkAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'problem_statement', 'image', 'image_1', 'image_2', 'live_site', 'github_link')
+    list_display = ('title',  'github_link')
+    prepopulated_fields = {'slug': ('title',)}
 
 
 

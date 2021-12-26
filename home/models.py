@@ -1,6 +1,11 @@
 from django.db import models
 
 
+
+LABELS =(
+    ("Speaking", "Speaking"),
+    ("Project", "Project")
+)
 # Model for Contact
 class Contact(models.Model):
     name = models.CharField(max_length=200)
@@ -16,15 +21,22 @@ class Contact(models.Model):
 # Model for Projects and Work
 
 class Work(models.Model):
-    name = models.CharField(max_length=200)
-    description = models.TextField()
-    problem_statement = models.TextField()
+    title = models.CharField(max_length=200)
+    label= models.CharField(choices=LABELS, blank=False, null=True, max_length=200)
+    overview = models.TextField()
     image = models.ImageField()
-    image_1 = models.ImageField()
-    image_2 = models.ImageField()
-    live_site = models.URLField()
-    github_link = models.URLField()
+    image_1 = models.ImageField(blank=True, null=True)
+    image_2 = models.ImageField(blank=True, null=True)
+    image_3 = models.ImageField(blank=True, null=True)
+    image_4 = models.ImageField(blank=True, null=True)
+    image_5 = models.ImageField(blank=True, null=True)
+    image_6 = models.ImageField(blank=True, null=True)
+    github_link = models.URLField(blank=True, null=True)
     slug = models.SlugField(blank=False, null=True)
+    date = models.DateTimeField(auto_now_add=True,null=True,blank=True )
 
     def __str__(self):
-        return self.name
+        return self.title
+
+    class Meta:
+        unique_together = ['title', 'slug']

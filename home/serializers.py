@@ -14,4 +14,17 @@ class WorkSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Work
-        fields = ('name', 'description', 'problem_statement', 'image', 'image_1', 'image_2', 'live_site', 'github_link')
+        fields = (
+            "title",
+            "label",
+            "overview",
+            "image",
+            "image_1",
+            "image_2",
+            "image_3",
+            "image_4",
+            "image_5",
+            "image_6",
+            "github_link",
+            "slug",
+        )
