@@ -48,4 +48,5 @@ class WorkDetailView(RetrieveAPIView):
     permission_classes = (AllowAny,)
     serializer_class = WorkSerializer
     queryset = Work.objects.all()
-    lookup_field = "slug"
+
+    lookup_field ="slug"
