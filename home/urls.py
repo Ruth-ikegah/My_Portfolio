@@ -7,7 +7,7 @@ urlpatterns = [
     path('work/', views.WorkView.as_view(), name='work'),
 
     path('home-work/', views.HomeWorkView.as_view(), name='home-work'),
-      path('work/<slug>', views.WorkDetailView.as_view(), name='work-detail'),
+      path('work/<slug>/', views.WorkDetailView.as_view(), name='work-detail'),
 
 
 
