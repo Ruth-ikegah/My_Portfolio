@@ -12,7 +12,10 @@ SECRET_KEY = '9)^nq$!vu(n#_vt!p5v&bgg_a@(8ok*$&mrb(h5@e1k9j4luf&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+
+#production
+ALLOWED_HOSTS = ["api.ruthikegah.com", "www.api.ruthikegah.com"]
 
 
 # Application definition
@@ -76,17 +79,29 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 #     }
 # }
 
+##production
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ruth',
-        'USER': 'postgres',
-        'PASSWORD': 'austinforreal',
+        'USER': 'ruth',
+        'PASSWORD': 'ruth',
+        'HOST': 'localhost',
         'PORT': '',
-        'HOST': 'localhost'
-
     }
 }
+##development
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ruth',
+#         'USER': 'postgres',
+#         'PASSWORD': 'austinforreal',
+#         'PORT': '',
+#         'HOST': 'localhost'
+
+#     }
+# }
 
 
 # Password validation
@@ -125,27 +140,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 #developments
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
 
-    # os.path.join(BASE_DIR, 'static')
+#     # os.path.join(BASE_DIR, 'static')
 
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 #production
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
-#   os.path.join(BASE_DIR, 'assets')
-# ]
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, 'assets')
+]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Django rest Framework Settings
 
 REST_FRAMEWORK = {
