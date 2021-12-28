@@ -10,11 +10,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9)^nq$!vu(n#_vt!p5v&bgg_a@(8ok*$&mrb(h5@e1k9j4luf&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-#ALLOWED_HOSTS = []
+#DEBUG = True
+#development
+# ALLOWED_HOSTS = []
 
 #production
+DEBUG = False
 ALLOWED_HOSTS = ["api.ruthikegah.com", "www.api.ruthikegah.com"]
 
 
@@ -30,6 +31,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'home',
+    "ckeditor",
+    "ckeditor_uploader"
 ]
 
 MIDDLEWARE = [
@@ -169,6 +172,8 @@ REST_FRAMEWORK = {
          'rest_framework.permissions.AllowAny',
     ]
 }
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 CORS_ALLOWED_ORIGINS = [

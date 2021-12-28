@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 
 
 LABELS =(
@@ -23,7 +23,7 @@ class Contact(models.Model):
 class Work(models.Model):
     title = models.CharField(max_length=200)
     label= models.CharField(choices=LABELS, blank=False, null=True, max_length=200)
-    overview = models.TextField()
+    overview = RichTextField()
     image = models.ImageField()
     image_1 = models.ImageField(blank=False, null=True)
     image_2 = models.ImageField(blank=False, null=True)

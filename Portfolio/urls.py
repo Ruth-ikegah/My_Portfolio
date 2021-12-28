@@ -8,6 +8,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('home.urls'))
+    path('api/', include('home.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
