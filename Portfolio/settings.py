@@ -174,6 +174,8 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
      "http://localhost:3001",
+     "https://www.ruthikegah.com",
+     "https://ruthikegah.com"
 
 
 ]
