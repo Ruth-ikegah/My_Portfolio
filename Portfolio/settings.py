@@ -10,13 +10,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9)^nq$!vu(n#_vt!p5v&bgg_a@(8ok*$&mrb(h5@e1k9j4luf&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 #development
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 #production
-DEBUG = False
-ALLOWED_HOSTS = ["api.ruthikegah.com", "www.api.ruthikegah.com"]
+# DEBUG = False
+# ALLOWED_HOSTS = ["api.ruthikegah.com", "www.api.ruthikegah.com"]
 
 
 # Application definition
@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'home',
+    "home",
     "ckeditor",
     "ckeditor_uploader"
 ]
@@ -83,28 +83,28 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 # }
 
 ##production
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ruth',
-        'USER': 'ruth',
-        'PASSWORD': 'ruth',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-##development
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #         'NAME': 'ruth',
-#         'USER': 'postgres',
-#         'PASSWORD': 'austinforreal',
+#         'USER': 'ruth',
+#         'PASSWORD': 'ruth',
+#         'HOST': 'localhost',
 #         'PORT': '',
-#         'HOST': 'localhost'
-
 #     }
 # }
+##development
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ruth',
+        'USER': 'postgres',
+        'PASSWORD': 'austinforreal',
+        'PORT': '',
+        'HOST': 'localhost'
+
+    }
+}
 
 
 # Password validation
@@ -143,27 +143,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 #developments
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
 
-#     # os.path.join(BASE_DIR, 'static')
+    # os.path.join(BASE_DIR, 'static')
 
-# ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 #production
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'assets')
-]
+# STATICFILES_DIRS = [
+#   os.path.join(BASE_DIR, 'assets')
+# ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Django rest Framework Settings
 
 REST_FRAMEWORK = {
@@ -185,4 +185,23 @@ CORS_ALLOWED_ORIGINS = [
 
 ]
 
+
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'contact@ruthikegah.com'
+EMAIL_HOST_PASSWORD = 'Amezhiruth2'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'contact@ruthikegah.com'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+
+}
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
