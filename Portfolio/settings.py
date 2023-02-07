@@ -13,7 +13,7 @@ SECRET_KEY = '9)^nq$!vu(n#_vt!p5v&bgg_a@(8ok*$&mrb(h5@e1k9j4luf&'
 
 #development
 # DEBUG = True
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 #production
 DEBUG = False
