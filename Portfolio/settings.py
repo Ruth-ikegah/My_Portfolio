@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "ckeditor",
     "ckeditor_uploader",
       'drf_yasg',
+      "psycopg2"
 ]
 
 MIDDLEWARE = [
