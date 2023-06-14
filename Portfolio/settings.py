@@ -32,10 +32,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     "home",
-    "ckeditor",
-    "ckeditor_uploader",
-      'drf_yasg',
-      "psycopg2"
+    'drf_yasg',
+   "django.contrib.postgres",
+    'django_editorjs',
+
+
 ]
 
 MIDDLEWARE = [
@@ -149,6 +150,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
+
 #production
 # STATIC_URL = '/static/'
 
@@ -167,7 +169,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 CORS_ALLOWED_ORIGINS = [

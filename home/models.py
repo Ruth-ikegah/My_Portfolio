@@ -1,6 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
-
+from django_editorjs import EditorJsField
 
 LABELS =(
     ("Speaking", "Speaking"),
@@ -23,7 +22,17 @@ class Contact(models.Model):
 class Work(models.Model):
     title = models.CharField(max_length=200)
     label= models.CharField(choices=LABELS, blank=False, null=True, max_length=200)
-    overview = RichTextField()
+    overview = EditorJsField(
+        editorjs_config={
+            "tools": {
+                "Table": {
+                    "disabled": False,
+                    "inlineToolbar": True,
+                    "config": {"rows": 2, "cols": 3,},
+                }
+            }
+        }
+    )
     image = models.ImageField()
     image_1 = models.URLField(blank=True, null=True)
     image_2 = models.URLField(blank=True, null=True)

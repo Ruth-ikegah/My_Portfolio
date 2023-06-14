@@ -17,7 +17,8 @@ class ContactView(APIView):
     serializer_class = ContactSerializer
 
     def post(self,request,*args,**kwargs):
-        values = request.data.get("values", None)
+        values = request.data.get("data", None)
+
         name= values['name']
         email= values['email']
         message= values['message']
